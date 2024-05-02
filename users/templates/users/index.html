@@ -1,0 +1,74 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Home          
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <div class="container my-14">
+
+        <div class="flex justify-center ">
+            <h1 class="text-3xl font-normal mb-2 text-gray-600">My Post</h1>
+        </div>
+
+        {% for post in posts %}
+            <div class="grid mx-60 p-10 grid-cols-1">
+                <!-- Card starts here -->
+                
+
+                    <a href="">
+                        <div class="rounded overflow-hidden w-[470px] h-[470px] bg-white shadow-lg">
+
+                            <div class="user-container flex mx-5 my-5">
+                                <img class="rounded-full w-14 h-14" src="{{ profile.photo.url }}" alt="">
+                                <div class="mx-2 my-2 font-bold text-lg"><span class="text-indigo-500">{{post.author.username}}</span>
+                                
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ post.image.url }}" alt="">
+                            </div>
+
+                            <div class="px-6 py-4">
+                                <div class="icon-container flex gap-5">
+                                    <img class="w-6 h-6" src="{% static 'users/images/h3.png' %}" alt="">
+                                    <img class="w-6 h-6" src="{% static 'users/images/c2.png' %}" alt="">
+                                    <img class="w-6 h-6" src="{% static 'users/images/sh1.png' %}" alt="">
+                                </div>
+                            </div>
+
+                            <div class="px-6 pt-2 pb-7">
+                                <div>
+                                    <h5 class="font-bold text-xl mb-2">{{ post.title }}</h5>    
+                                </div>
+                                <p class="text-gray-600 text-base">{{ post.caption }}</p>
+                            </div>
+
+                        </div>
+                    </a>
+
+                    <div>
+                        <hr>
+                    </div>
+
+                
+            </div>
+        <!-- Cards end here -->
+        {% endfor %}
+       
+
+    </div>
+
+  
+
+{% endblock content %}
+
+{% block scripts %}
+    
+{% endblock scripts %}

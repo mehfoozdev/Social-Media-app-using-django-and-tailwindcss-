@@ -1,0 +1,59 @@
+{% extends 'users/base.html' %}
+
+
+{% block title %}
+    Profile Form          
+{% endblock title %}
+
+
+
+{% block content %}
+
+<div class="container m-12">
+
+        <h1 class="text-2xl font-semibold" > 📝 Edit Profile</h1>
+    
+
+        <form method="post" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %}
+
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3">{{user_form.first_name}}</div>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3">{{user_form.last_name}}</div>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3">{{user_form.email}}</div>
+            </div>
+
+
+            <!-- Profile Photo -->
+
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Photo</label>
+                <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3">{{profile_form.photo}}</div>
+            </div>
+
+           
+            <button type='submit' class='text-white bg-green-500 px-4 py-2 my-3 font-bold'>Update</button>
+        
+        </form>
+   
+</div>
+
+
+
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+    
+{% endblock scripts %}
